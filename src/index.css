@@ -31,3 +31,71 @@ ul {
   list-style-type: none;
   padding: 0;
 }
+
+.img-list {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 275px;
+  overflow: hidden;
+  padding: 35px;
+  gap: 33px;
+}
+
+.environment-info {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 8px;
+  text-transform: uppercase;
+}
+
+.forward-parent {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: orange;
+  height: 300px;
+}
+
+.forward-parent span{
+  font-size: 15px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.forward-middle {
+  position: relative;
+  background-color: darkblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 240px;
+}
+
+.forward-parent button{
+  margin-bottom: 10px;
+}
+
+.forward-child {
+  position: relative;
+  background-color: green;
+  height: 150px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.forward-child span {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+  color: rgb(79, 250, 250)
+}
