@@ -4,6 +4,7 @@ import FowardContainer from "./hooks/useRef/forward-ref/forward-ref-container"
 import UseRef from "./hooks/useRef/use-ref"
 import UseRefFocus from "./hooks/useRef/use-ref-focus"
 import UseRefScroll from "./hooks/useRef/use-ref-scroll"
+import UseDeferred from "./hooks/use-deferred-value/use-deferred-value"
 
 function App() {
   const [component, setComponent] = useState("")
@@ -15,6 +16,7 @@ function App() {
       "use-ref-scroll": <UseRefScroll />,
       "use-ref-focus": <UseRefFocus />,
       "use-ref-forward": <FowardContainer />,
+      "use-deferred-value": <UseDeferred />,
     }
 
     return data[component]
@@ -48,7 +50,9 @@ function App() {
           </button>
         </li>
         <li>
-          <button onClick={() => setComponent("UseRef")}> 3 </button>
+          <button onClick={() => setComponent("use-deferred-value")}>
+            useDeferredValue
+          </button>
         </li>
         <li>
           <button onClick={() => setComponent("UseRef")}> 4 </button>
