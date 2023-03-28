@@ -14,12 +14,14 @@ export function filterTodos(todos, tab) {
   console.log("Filtering " + todos.length + ' todos for "' + tab + '" tab.')
 
   return todos.filter((todo) => {
-    if (tab === "all") {
-      return true
-    } else if (tab === "active") {
+    if (tab === "active") {
       return !todo.completed
-    } else if (tab === "completed") {
+    }
+
+    if (tab === "completed") {
       return todo.completed
     }
+
+    return true
   })
 }
