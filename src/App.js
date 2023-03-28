@@ -1,63 +1,51 @@
 import { useState } from "react"
-import FowardContainer from "./hooks/use-ref/forward-ref/forward-ref-container"
-import UseRef from "./hooks/use-ref/use-ref"
-import UseRefFocus from "./hooks/use-ref/use-ref-focus"
-import UseRefScroll from "./hooks/use-ref/use-ref-scroll"
-import UseDeferred from "./hooks/use-deferred-value/use-deferred-value"
-import UseMemoComponent from "./hooks/use-memo/UseMemoComponent"
-import UseCallback from "./hooks/use-callback/UseCallback"
+import routes from "./spa-routes"
 
 function App() {
   const [component, setComponent] = useState("")
 
   const showElement = () => {
-    const data = {
-      "use-ref": <UseRef />,
-      "use-ref-scroll": <UseRefScroll />,
-      "use-ref-focus": <UseRefFocus />,
-      "use-ref-forward": <FowardContainer />,
-      "use-deferred-value": <UseDeferred />,
-      "use-memo": <UseMemoComponent />,
-      "use-callback": <UseCallback />,
-    }
-
-    return data[component]
+    return routes[component]
   }
 
+  const isActive = (styleName) =>
+    component === styleName ? "active-primary" : ""
+
   return (
-    <div className="App">
+    <div>
       <span className="environment-info">{process.env.NODE_ENV}</span>
       <h1>hooooooks</h1>
 
       <ul className="list-buttons">
         <li>
-          <button onClick={() => setComponent("use-ref")}>useRef</button>
-        </li>
-        <li>
-          <button onClick={() => setComponent("use-ref-focus")}>
-            useRefFocus
+          <button
+            className={isActive("use-ref-app")}
+            onClick={() => setComponent("use-ref-app")}
+          >
+            useRef
           </button>
         </li>
         <li>
-          <button onClick={() => setComponent("use-ref-scroll")}>
-            useRefScroll
+          <button
+            className={isActive("use-deferred-value")}
+            onClick={() => setComponent("use-deferred-value")}
+          >
+            useDeferred
           </button>
         </li>
         <li>
-          <button onClick={() => setComponent("use-ref-forward")}>
-            useRef fowardRef
+          <button
+            className={isActive("use-memo")}
+            onClick={() => setComponent("use-memo")}
+          >
+            useMemo
           </button>
         </li>
         <li>
-          <button onClick={() => setComponent("use-deferred-value")}>
-            useDeferredValue
-          </button>
-        </li>
-        <li>
-          <button onClick={() => setComponent("use-memo")}> useMemo </button>
-        </li>
-        <li>
-          <button onClick={() => setComponent("use-callback")}>
+          <button
+            className={isActive("use-callback")}
+            onClick={() => setComponent("use-callback")}
+          >
             useCallback
           </button>
         </li>

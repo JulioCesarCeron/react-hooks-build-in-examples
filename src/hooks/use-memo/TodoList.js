@@ -1,10 +1,9 @@
-import { useMemo } from "react"
 import { filterTodos } from "../../util/todos"
 
 const TodoList = ({ todos, theme, tab }) => {
   console.count("renderizou TodoList")
 
-  const visibleTodos = useMemo(() => filterTodos(todos, tab), [todos, tab])
+  const visibleTodos = filterTodos(todos, tab)
 
   return (
     <div className={theme}>

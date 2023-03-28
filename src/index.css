@@ -8,13 +8,17 @@ body {
   text-align: center;
 }
 
+button {
+  cursor: pointer;
+}
+
 pre {
   font-family: Consolas,"courier new";
   color: rgb(86, 111, 225);
   background-color: #f1f1f1;
   padding: 2px;
   font-size: 105%;
-  width: 400px;
+  width: 505px;
   text-align: left;
   margin-left: auto;
   margin-right: auto;
@@ -27,10 +31,6 @@ hr {
 ul {
   list-style-type: none;
   padding: 0;
-}
-
-.use-ref button {
-  margin: 5px;
 }
 
 .img-list {
@@ -57,7 +57,7 @@ ul {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: orange;
+  background-color: #5f420d;
   height: 300px;
 }
 
@@ -126,4 +126,59 @@ button[type="button"] {
 
 .use-callback-form input {
   margin-left: 5px;
+}
+
+.use-callback-form button[type="submit"] {
+  width: min-content;
+  margin: 0 auto;
+}
+
+.use-ref > div > button {
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+.active-primary {
+  background-color: #343433;
+  border-radius: 2px;
+  border-width: 1px;
+  border-color: rgb(15, 23, 179);
+  height: 22px;
+}
+
+.active-secondary {
+  background-color: #343433;
+  border-radius: 2px;
+  border-width: 1px;
+  border-color: yellow;
+  height: 22px;
+}
+
+.active-tertiary {
+  background-color: #343433;
+  border-radius: 2px;
+  border-width: 1px;
+  border-color: rgb(20, 228, 69);
+  height: 22px;
+}
+
+* {
+  animation-name: FadeIn;
+  animation-duration: 1s;
+  transition-timing-function: linear;
+}
+
+img {
+  animation-name: FadeIn;
+  animation-duration: 6s;
+  transition-timing-function: linear;
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

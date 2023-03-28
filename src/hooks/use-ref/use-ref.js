@@ -1,16 +1,17 @@
 import { useRef, useState } from "react"
 import { dog } from "./use-ref.props"
 
-let externalVariable = "initial"
+// let externalVariable = "initial"
 
 function UseRef() {
   const [count, setCount] = useState(0)
-  const ref = useRef(0)
+  const ref = useRef(0) // set to null inital value
 
   console.group("UseRef")
   console.count("renderizou UseRef")
-  console.log("externalVariable", externalVariable)
+  // console.log("externalVariable", externalVariable)
   console.log("ref", ref)
+  console.groupEnd()
 
   const onChangeRef = () => {
     if (typeof ref.current === "object") {
@@ -21,19 +22,18 @@ function UseRef() {
     console.log("ref.current", ref)
   }
 
-  const changeOutsideVariable = () => {
-    externalVariable = "javascript brings great emotions"
-    console.log("variavelExterna", externalVariable)
-  }
+  // const changeOutsideVariable = () => {
+  //   externalVariable = "javascript brings great emotions"
+  //   console.log("variavelExterna", externalVariable)
+  // }
 
-  console.groupEnd()
   return (
     <div className="use-ref">
-      <h1>useRef</h1>
+      <p>1 - useRef</p>
 
       <hr />
 
-      <article>
+      <div>
         <button onClick={onChangeRef}>update counter useRef</button>
         <button
           onClick={() => {
@@ -42,23 +42,26 @@ function UseRef() {
         >
           add dog to useRef
         </button>
-        <button onClick={() => changeOutsideVariable()}>
-          update external variable
-        </button>
         <br />
         {/* don't show ref in html like this in a real app */}
-        <pre>{JSON.stringify(ref, undefined, 2)}</pre>
-      </article>
+        <pre> useRef {JSON.stringify(ref, undefined, 2)}</pre>
+      </div>
 
-      <hr />
-
-      <article>
+      <div>
         <button onClick={() => setCount((prev) => prev + 1)}>
           update counter state
         </button>
         <br />
         <pre>state: {count}</pre>
-      </article>
+      </div>
+
+      {/* <div>
+        <button onClick={() => changeOutsideVariable()}>
+          update external variable
+        </button>
+        <br />
+        <pre>externalVariable: {externalVariable}</pre>
+      </div> */}
 
       <hr />
     </div>

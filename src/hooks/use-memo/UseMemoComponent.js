@@ -5,13 +5,30 @@ import TodoList from "./TodoList"
 const todos = createTodos()
 
 const UseMemoComponent = () => {
+  console.count("renderizou useMemo")
   const [tab, setTab] = useState("all")
   const [isDark, setIsDark] = useState(false)
+
+  const isActive = (styleName) => (tab === styleName ? "active-tertiary" : "")
+
   return (
     <>
-      <button onClick={() => setTab("all")}>All</button>
-      <button onClick={() => setTab("active")}>Active</button>
-      <button onClick={() => setTab("completed")}>Completed</button>
+      <h2>useMemo</h2>
+      <hr />
+      <div className="list-buttons">
+        <button className={isActive("all")} onClick={() => setTab("all")}>
+          All
+        </button>
+        <button className={isActive("active")} onClick={() => setTab("active")}>
+          Active
+        </button>
+        <button
+          className={isActive("completed")}
+          onClick={() => setTab("completed")}
+        >
+          Completed
+        </button>
+      </div>
       <br />
       <label>
         <input
@@ -21,8 +38,8 @@ const UseMemoComponent = () => {
         />
         Dark mode
       </label>
-      <hr />
       <TodoList todos={todos} tab={tab} theme={isDark ? "dark" : "light"} />
+      <hr />
     </>
   )
 }

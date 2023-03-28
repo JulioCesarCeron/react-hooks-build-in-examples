@@ -2,10 +2,13 @@ import { useState } from "react"
 import ProductPage from "./ProductPage"
 
 const UseCallback = () => {
+  console.count("renderizou useCallback")
   const [isDark, setIsDark] = useState(false)
 
   return (
     <>
+      <h2>useCallback</h2>
+      <hr />
       <label>
         <input
           type="checkbox"
@@ -15,13 +18,12 @@ const UseCallback = () => {
         Dark mode
       </label>
 
-      <hr />
-
       <ProductPage
         referrerId="wizard_of_oz"
         productId={123}
         theme={isDark ? "dark" : "light"}
       />
+      <hr />
     </>
   )
 }
