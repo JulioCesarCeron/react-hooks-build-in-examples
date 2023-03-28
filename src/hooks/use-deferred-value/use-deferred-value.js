@@ -7,6 +7,7 @@ function UseDeferred() {
 
   return (
     <>
+      <h1>useDeferred</h1>
       <hr />
       <input value={text} onChange={(e) => setText(e.target.value)} />
       <br />

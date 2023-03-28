@@ -1,10 +1,5 @@
 import { useRef, useState } from "react"
-
-const dog = {
-  name: "zeca",
-  race: "caramelo bombado",
-  isFriendly: true,
-}
+import { dog } from "./use-ref.props"
 
 let externalVariable = "initial"
 
@@ -26,10 +21,6 @@ function UseRef() {
     console.log("ref.current", ref)
   }
 
-  const onAddDog = () => {
-    ref.current = dog
-  }
-
   const changeOutsideVariable = () => {
     externalVariable = "javascript brings great emotions"
     console.log("variavelExterna", externalVariable)
@@ -37,15 +28,23 @@ function UseRef() {
 
   console.groupEnd()
   return (
-    <div className="App">
+    <div className="use-ref">
       <h1>useRef</h1>
 
       <hr />
 
       <article>
-        <button onClick={onChangeRef}>update useRef with counter</button>{" "}
-        <button onClick={onAddDog}>add dog to useRef</button>
-        <br />
+        <button onClick={onChangeRef}>update counter useRef</button>
+        <button
+          onClick={() => {
+            ref.current = dog
+          }}
+        >
+          add dog to useRef
+        </button>
+        <button onClick={() => changeOutsideVariable()}>
+          update external variable
+        </button>
         <br />
         {/* don't show ref in html like this in a real app */}
         <pre>{JSON.stringify(ref, undefined, 2)}</pre>
@@ -55,17 +54,13 @@ function UseRef() {
 
       <article>
         <button onClick={() => setCount((prev) => prev + 1)}>
-          update state with counter
+          update counter state
         </button>
-        <br />
         <br />
         <pre>state: {count}</pre>
       </article>
 
       <hr />
-      <button onClick={() => changeOutsideVariable()}>
-        change external variable value
-      </button>
     </div>
   )
 }

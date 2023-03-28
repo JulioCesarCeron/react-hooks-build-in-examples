@@ -1,10 +1,11 @@
 import { useState } from "react"
-import UseEffect from "./hooks/use-effect/use-effect"
 import FowardContainer from "./hooks/useRef/forward-ref/forward-ref-container"
 import UseRef from "./hooks/useRef/use-ref"
 import UseRefFocus from "./hooks/useRef/use-ref-focus"
 import UseRefScroll from "./hooks/useRef/use-ref-scroll"
 import UseDeferred from "./hooks/use-deferred-value/use-deferred-value"
+import UseMemoComponent from "./hooks/use-memo/UseMemoComponent"
+import UseCallback from "./hooks/use-callback/UseCallback"
 
 function App() {
   const [component, setComponent] = useState("")
@@ -12,11 +13,12 @@ function App() {
   const showElement = () => {
     const data = {
       "use-ref": <UseRef />,
-      "use-effect": <UseEffect />,
       "use-ref-scroll": <UseRefScroll />,
       "use-ref-focus": <UseRefFocus />,
       "use-ref-forward": <FowardContainer />,
       "use-deferred-value": <UseDeferred />,
+      "use-memo": <UseMemoComponent />,
+      "use-callback": <UseCallback />,
     }
 
     return data[component]
@@ -27,7 +29,7 @@ function App() {
       <span className="environment-info">{process.env.NODE_ENV}</span>
       <h1>hooooooks</h1>
 
-      <ul>
+      <ul className="list-buttons">
         <li>
           <button onClick={() => setComponent("use-ref")}>useRef</button>
         </li>
@@ -42,9 +44,6 @@ function App() {
           </button>
         </li>
         <li>
-          <button onClick={() => setComponent("use-effect")}>useEffect</button>
-        </li>
-        <li>
           <button onClick={() => setComponent("use-ref-forward")}>
             useRef fowardRef
           </button>
@@ -55,9 +54,16 @@ function App() {
           </button>
         </li>
         <li>
-          <button onClick={() => setComponent("UseRef")}> 4 </button>
+          <button onClick={() => setComponent("use-memo")}> useMemo </button>
+        </li>
+        <li>
+          <button onClick={() => setComponent("use-callback")}>
+            useCallback
+          </button>
         </li>
       </ul>
+
+      <hr size="3" noshade="true" color="red" />
 
       {showElement()}
     </div>
