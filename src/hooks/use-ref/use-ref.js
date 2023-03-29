@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import { dog } from "./use-ref.props"
 
-// let externalVariable = "initial"
+let externalVariable = "initial"
 
 function UseRef() {
   const [count, setCount] = useState(0)
@@ -9,7 +9,7 @@ function UseRef() {
 
   console.group("UseRef")
   console.count("renderizou UseRef")
-  // console.log("externalVariable", externalVariable)
+  console.log("externalVariable", externalVariable)
   console.log("ref", ref)
   console.groupEnd()
 
@@ -22,10 +22,10 @@ function UseRef() {
     console.log("ref.current", ref)
   }
 
-  // const changeOutsideVariable = () => {
-  //   externalVariable = "javascript brings great emotions"
-  //   console.log("variavelExterna", externalVariable)
-  // }
+  const changeOutsideVariable = () => {
+    externalVariable = "javascript brings great emotions"
+    console.log("variavelExterna", externalVariable)
+  }
 
   return (
     <div className="use-ref">
@@ -55,13 +55,13 @@ function UseRef() {
         <pre>state: {count}</pre>
       </div>
 
-      {/* <div>
+      <div>
         <button onClick={() => changeOutsideVariable()}>
           update external variable
         </button>
         <br />
         <pre>externalVariable: {externalVariable}</pre>
-      </div> */}
+      </div>
 
       <hr />
     </div>
