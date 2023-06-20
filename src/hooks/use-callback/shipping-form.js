@@ -1,6 +1,6 @@
 import { memo, useState } from "react"
 
-const ShippingForm = memo(function ShippingForm({ onSubmit }) {
+const ShippingForm = ({ onSubmit }) => {
   const [count, setCount] = useState(1)
 
   let startTime = performance.now()
@@ -51,6 +51,6 @@ const ShippingForm = memo(function ShippingForm({ onSubmit }) {
       <button type="submit">Submit</button>
     </form>
   )
-})
+}
 
-export default ShippingForm
+export default memo(ShippingForm)

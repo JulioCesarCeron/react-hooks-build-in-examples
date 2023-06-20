@@ -2,15 +2,15 @@ import { useCallback } from "react"
 import { post } from "./Post.js"
 import ShippingForm from "./shipping-form.js"
 
-export default function ProductPage({ productId, referrer, theme }) {
+export default function ProductPage({ productId, referrerId, theme }) {
   const handleSubmit = useCallback(
     (orderDetails) => {
       post("/product/" + productId + "/buy", {
-        referrer,
+        referrerId,
         orderDetails,
       })
     },
-    [productId, referrer]
+    [productId, referrerId]
   )
 
   return (
