@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-hooks-built-in-examples/static/css/main.9d0dc34f.css",
+    "main.js": "/react-hooks-built-in-examples/static/js/main.cb5eb8d8.js",
+    "index.html": "/react-hooks-built-in-examples/index.html",
+    "main.9d0dc34f.css.map": "/react-hooks-built-in-examples/static/css/main.9d0dc34f.css.map",
+    "main.cb5eb8d8.js.map": "/react-hooks-built-in-examples/static/js/main.cb5eb8d8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9d0dc34f.css",
+    "static/js/main.cb5eb8d8.js"
+  ]
+}
